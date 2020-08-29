@@ -23,6 +23,7 @@ class Render {
             ),
           ],
           currentIndex: story['selecaoDoMenu']?.index,
+          onTap: (int intex) => callback(),
         ),
       ),
     );
