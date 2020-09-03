@@ -44,34 +44,36 @@ var story1 = {
     },
   ],
 };
+
+var list = List<int>.generate(3000, (i) => i + 1);
 var story2 = {
   'selecaoDoMenu': Abas.DASHBOARD,
-  'reclamacoes': [
-    {
-      'titulo': 'Reclamacao 1',
-      'descricao': 'Lorem ipsum dolor sit amet, conse',
-      'foto': 'assets/img2.png',
-    },
-    {
-      'titulo': 'Reclamacao 2',
-      'descricao': 'Lorem ipsum dolor sit amet, conse asdf',
-      'foto': 'assets/img1.png',
-    },
-    {
-      'titulo': 'Reclamacao 3',
-      'descricao': 'Lorem ipsum dolor sit amet, conse asdf',
-      'foto': 'assets/img1.png',
-    },
-    {
-      'titulo': 'Reclamacao 4',
-      'descricao': 'Lorem ipsum dolor sit amet, conse asdf',
-      'foto': 'assets/img2.png',
-    },
-  ],
+  'reclamacoes': list
+      .map(
+        (e) => {
+          'titulo': 'Reclamacao $e',
+          'descricao': 'Lorem ipsum dolor sit amet, conse $e',
+          'foto': 'assets/img2.png',
+        },
+      )
+      .toList()
 };
+
+var story3 = {
+  'selecaoDoMenu': Abas.RECLAMACOES,
+  'reclamacao': {
+    'id': '',
+    'titulo': '',
+    'descricao': '',
+    'foto': '',
+    'latitude': -25.8566167,
+    'longitude': -52.5294107
+  }
+};
+
 void main() {
   runApp(MyApp(
-    story: story1,
+    story: story3,
   ));
 }
 
